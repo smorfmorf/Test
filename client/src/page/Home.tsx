@@ -38,7 +38,7 @@ function Home() {
             <div className="flex-1">
                <h2 className="mb-5 text-2xl font-bold">Популярные посты</h2>
                <div ref={animate} className="grid grid-cols-1 gap-10 ">
-                  {status === "loading" ? skeletons : items.map((post) => <Post {...post} key={post.id} isEditable={true} />)}
+                  {status === "loading" ? skeletons : items.map((post) => <Post key={post.id} id={post.id} imageUrl={post.imageUrl} title={post.title} createdAt={post.createdAt} text={post.text} author={post.author} isEditable={isAuth?.id === post.author.id} />)}
                </div>
             </div>
 

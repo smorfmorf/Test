@@ -96,7 +96,7 @@ const AddPost = () => {
                <Button onClick={() => setImageUrl("")} variant="contained" color="error">
                   Удалить
                </Button>
-               <img src={`http://localhost:5555${imageUrl}`} className="w-full" alt="" />
+               <img src={import.meta.env.VITE_APP_SERVER + imageUrl} className="w-full" alt="" />
             </>
          )}
          <br />

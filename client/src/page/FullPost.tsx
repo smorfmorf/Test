@@ -42,3 +42,4 @@ const FullPost = () => {
    );
 };
 export default FullPost;
+//   <ReactMarkdown children={data.text} /> передать в props вот так
