@@ -24,7 +24,7 @@ interface Props {
 
 export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, author, isEditable, isLoading, isFullPost }) => {
    console.log("imageUrl132123213: ", imageUrl);
-   console.log("k123123", import.meta.env.VITE_APP_SERVER + imageUrl);
+   console.log("meta.env.VITE_APP_SERVER: ", import.meta.env.VITE_APP_SERVER + imageUrl);
    const dispatch = useAppDispatch();
 
    if (isLoading) {
@@ -49,7 +49,14 @@ export const Post: React.FC<Props> = ({ id, imageUrl, title, createdAt, text, au
             </div>
          )}
          <Link to={`/posts/${id}`}>
-            <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })} alt="" />
+            {imageUrl.endsWith(".mp4") ? (
+               <video controls className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })}>
+                  <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+               </video>
+            ) : (
+               <img src={imageUrl ? import.meta.env.VITE_APP_SERVER + imageUrl : "test.jpg"} className={clsx("w-full h-[300px] object-cover rounded-lg ", { "min-h-[300px] h-full": isFullPost })} alt="" />
+            )}
          </Link>
          {/* UserInfo */}
          <div className="bg-white/50 p-5">
