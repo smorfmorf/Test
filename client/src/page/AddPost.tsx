@@ -6,6 +6,7 @@ import "easymde/dist/easymde.min.css";
 import axios from "../axios";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
+import clsx from "clsx";
 
 const AddPost = () => {
    const { id } = useParams();
@@ -96,7 +97,14 @@ const AddPost = () => {
                <Button onClick={() => setImageUrl("")} variant="contained" color="error">
                   Удалить
                </Button>
-               <img src={import.meta.env.VITE_APP_SERVER + imageUrl} className="w-full" alt="" />
+               {imageUrl.endsWith(".mp4") ? (
+                  <video controls className="w-full h-[50vh] object-cover rounded-lg ">
+                     <source src={import.meta.env.VITE_APP_SERVER + imageUrl} type="video/mp4" />
+                     Your browser does not support the video tag.
+                  </video>
+               ) : (
+                  <img src={import.meta.env.VITE_APP_SERVER + imageUrl} className="w-full h-[50vh] object-cover rounded-lg" alt="" />
+               )}
             </>
          )}
          <br />

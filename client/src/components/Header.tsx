@@ -30,7 +30,7 @@ export const Header = () => {
          </div>
 
          {isAuth ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-col sm:flex-row ">
                <Link to="/add-post">
                   <Button variant="contained">Написать статью</Button>
                </Link>
@@ -39,7 +39,7 @@ export const Header = () => {
                </Button>
             </div>
          ) : (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-col sm:flex-row">
                <Link to="/login">
                   <Button variant="outlined">Войти</Button>
                </Link>
