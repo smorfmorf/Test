@@ -42,7 +42,7 @@ function Home() {
                </div>
             </div>
 
-            <aside className="w-[300px]">
+            <aside className="hidden sm:w-[300px]  sm:block">
                <h2 className="mb-5 text-2xl font-bold">Вы вошли как: </h2>
                <div className="flex gap-3">
                   <img src="/noavatar.png" className="w-20 h-20" />

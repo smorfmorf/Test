@@ -10,7 +10,6 @@ import clsx from "clsx";
 createRoot(document.getElementById("root")!).render(
    <BrowserRouter>
       <Provider store={store}>
-         {/* <Cirlce /> */}
          <App />
       </Provider>
    </BrowserRouter>
